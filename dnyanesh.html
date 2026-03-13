@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dnyanesh Kalal — Senior Software Engineer</title>
+  <style>
+    :root[data-theme="dark"]{--bg:#0a0f1e;--bg2:#0e1628;--bg3:#131e35;--card:#111827;--border:#1e2d45;--accent:#38bdf8;--accent2:#818cf8;--text:#e2e8f0;--muted:#94a3b8;--tag-bg:#1e3a5f}
+    :root[data-theme="light"]{--bg:#f0f4ff;--bg2:#e8edf8;--bg3:#dce3f5;--card:#fff;--border:#c7d2e8;--accent:#0369a1;--accent2:#4f46e5;--text:#1e293b;--muted:#475569;--tag-bg:#dbeafe}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    ::-webkit-scrollbar{width:6px}
+    ::-webkit-scrollbar-track{background:var(--bg)}
+    ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;background:rgba(10,15,30,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:background .3s}
+    :root[data-theme="light"] nav{background:rgba(240,244,255,0.88)}
+    .nav-logo{font-size:1.2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .nav-links{display:flex;gap:1.4rem;align-items:center}
+    .nav-links a{color:var(--muted);font-size:.88rem;font-weight:500;transition:color .2s}
+    .nav-links a:hover{color:var(--accent);text-decoration:none}
+    .theme-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text);cursor:pointer;border-radius:50%;width:36px;height:36px;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s}
+    .theme-btn:hover{transform:rotate(20deg);background:var(--accent);color:#fff}
+
+    /* HERO */
+    #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+    #hero::before,#hero::after{content:'';position:absolute;border-radius:50%;filter:blur(90px);opacity:.2;animation:drift 9s ease-in-out infinite alternate}
+    #hero::before{width:550px;height:550px;background:var(--accent);top:-120px;left:-120px}
+    #hero::after{width:450px;height:450px;background:var(--accent2);bottom:-100px;right:-100px;animation-delay:-4.5s}
+    @keyframes drift{from{transform:translate(0,0)}to{transform:translate(50px,35px)}}
+    .hero-avatar{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#fff;margin-bottom:1.5rem;position:relative;z-index:1;box-shadow:0 0 0 4px var(--bg),0 0 0 7px var(--accent);animation:popIn .7s cubic-bezier(.34,1.56,.64,1) both}
+    @keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+    .hero-greeting{font-size:.9rem;color:var(--accent);font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.5rem;position:relative;z-index:1;animation:fadeUp .5s .2s both}
+    .hero-name{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.1;position:relative;z-index:1;animation:fadeUp .5s .3s both}
+    .hero-title{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--muted);margin-top:.6rem;position:relative;z-index:1;animation:fadeUp .5s .4s both}
+    .typewriter{display:inline-block;overflow:hidden;white-space:nowrap;border-right:2px solid var(--accent);animation:typing 3.5s steps(40,end) .9s both,blink .75s step-end infinite}
+    @keyframes typing{from{width:0}to{width:100%}}
+    @keyframes blink{50%{border-color:transparent}}
+    .hero-summary{max-width:640px;color:var(--muted);line-height:1.75;margin:1.6rem auto 0;position:relative;z-index:1;animation:fadeUp .5s .5s both}
+    .hero-cta{display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;justify-content:center;position:relative;z-index:1;animation:fadeUp .5s .6s both}
+    .btn{padding:.72rem 1.6rem;border-radius:8px;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .22s;border:none;display:inline-flex;align-items:center;gap:.4rem}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;box-shadow:0 4px 18px rgba(56,189,248,.3)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(56,189,248,.45);text-decoration:none;color:#fff}
+    .btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);text-decoration:none}
+    .hero-stats{display:flex;gap:3rem;margin-top:3rem;position:relative;z-index:1;animation:fadeUp .5s .7s both}
+    .stat{text-align:center}
+    .stat-num{font-size:2.2rem;font-weight:800;color:var(--accent)}
+    .stat-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:.2rem}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);color:var(--muted);font-size:.78rem;display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:scrollBounce 2s infinite}
+    .scroll-hint span{width:1.5px;height:38px;background:linear-gradient(var(--accent),transparent)}
+    @keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(9px)}}
+
+    /* SECTIONS */
+    .section-wrap{padding:6rem 2rem;max-width:1100px;margin:0 auto}
+    .section-full{background:var(--bg2)}
+    .section-full .section-wrap{margin:0 auto}
+    .section-label{font-size:.78rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem}
+    .section-title{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;margin-bottom:.6rem}
+    .section-line{width:52px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin-bottom:3rem}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s,transform .65s}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* SKILLS */
+    .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.5rem}
+    .skill-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;transition:transform .25s,box-shadow .25s,border-color .25s}
+    .skill-card:hover{transform:translateY(-5px);box-shadow:0 12px 35px rgba(0,0,0,.3);border-color:var(--accent)}
+    .skill-card-icon{font-size:1.9rem;margin-bottom:.9rem}
+    .skill-card h3{font-size:1rem;font-weight:700;margin-bottom:.9rem;color:var(--accent)}
+    .tag-wrap{display:flex;flex-wrap:wrap;gap:.4rem}
+    .tag{background:var(--tag-bg);color:var(--accent);font-size:.73rem;padding:.25rem .72rem;border-radius:20px;font-weight:600}
+
+    /* EXPERIENCE */
+    .timeline{position:relative;padding-left:2.2rem}
+    .timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(var(--accent),var(--accent2),#34d399);border-radius:2px}
+    .tl-item{position:relative;margin-bottom:2.8rem}
+    .tl-dot{position:absolute;left:-2.2rem;top:6px;width:16px;height:16px;border-radius:50%;background:var(--accent);border:3px solid var(--bg);box-shadow:0 0 0 3px var(--accent)}
+    .tl-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;transition:border-color .25s,box-shadow .25s}
+    .tl-card:hover{border-color:var(--accent);box-shadow:0 8px 28px rgba(0,0,0,.25)}
+    .tl-header{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.7rem}
+    .tl-role{font-size:1.05rem;font-weight:700}
+    .tl-company{color:var(--accent);font-weight:600;margin-top:.15rem}
+    .tl-period{background:var(--tag-bg);color:var(--accent);font-size:.73rem;padding:.28rem .85rem;border-radius:20px;font-weight:600;height:fit-content;white-space:nowrap}
+    .tl-list{list-style:none;margin-top:.8rem}
+    .tl-list li{color:var(--muted);font-size:.9rem;line-height:1.65;padding:.3rem 0 .3rem 1.3rem;position:relative}
+    .tl-list li::before{content:'▸';position:absolute;left:0;color:var(--accent)}
+
+    /* PROJECTS */
+    .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5rem}
+    .project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.9rem;display:flex;flex-direction:column;gap:.9rem;transition:transform .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+    .project-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 45px rgba(0,0,0,.35);border-color:var(--accent)}
+    .project-icon{font-size:2.2rem}
+    .project-name{font-size:1.12rem;font-weight:700}
+    .project-desc{color:var(--muted);font-size:.9rem;line-height:1.65;flex:1}
+    .project-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+    .contact-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;text-align:center;transition:border-color .25s,transform .25s}
+    .contact-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+    .contact-icon{font-size:1.9rem;margin-bottom:.7rem}
+    .contact-label{color:var(--muted);font-size:.82rem;margin-bottom:.4rem;text-transform:uppercase;letter-spacing:1px}
+    .contact-value{color:var(--accent);font-weight:600;font-size:.92rem}
+
+    /* EDUCATION */
+    .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .edu-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.6rem;transition:border-color .25s,transform .25s}
+    .edu-card:hover{border-color:var(--accent2);transform:translateY(-3px)}
+    .edu-icon{font-size:1.8rem;margin-bottom:.8rem}
+    .edu-degree{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+    .edu-school{color:var(--accent);font-weight:600;margin-bottom:.3rem}
+    .edu-year{color:var(--muted);font-size:.85rem}
+
+    /* FOOTER */
+    footer{text-align:center;padding:2.5rem 2rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+    footer strong{color:var(--accent)}
+
+    /* RESPONSIVE */
+    @media(max-width:640px){
+      nav{padding:.8rem 1.2rem}
+      .nav-links a:not(.btn-primary):not(.theme-btn){display:none}
+      .hero-stats{gap:1.8rem}
+      .timeline{padding-left:1.6rem}
+      .tl-dot{left:-1.6rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">DK</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="#" onclick="downloadResume()" class="btn btn-primary">⬇ Resume</a>
+    <button class="theme-btn" id="themeToggle" title="Toggle theme">🌙</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div id="about">
+  <div id="hero">
+    <div class="hero-avatar">DK</div>
+    <p class="hero-greeting">👋 Hello, I'm</p>
+    <h1 class="hero-name">Dnyanesh Kalal</h1>
+    <p class="hero-title"><span class="typewriter">Senior Software Engineer · Android &amp; Flutter</span></p>
+    <p class="hero-summary">
+      Dynamic Senior Software Engineer with <strong style="color:var(--text)">7+ years</strong> of experience specializing in
+      Android and Flutter app development. Proven expertise in mentoring teams, improving productivity,
+      and delivering scalable products. Skilled in Jenkins Pipeline, SDK development, and cross-functional collaboration.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">🚀 View My Work</a>
+      <a href="#contact" class="btn btn-outline">✉️ Get In Touch</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Years Exp.</div></div>
+      <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Key Projects</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Companies</div></div>
+    </div>
+    <div class="scroll-hint">scroll <span></span></div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" class="section-full">
+  <div class="section-wrap">
+    <p class="section-label reveal">Technical Expertise</p>
+    <h2 class="section-title reveal">Skills &amp; Technologies</h2>
+    <div class="section-line reveal"></div>
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🤖</div>
+        <h3>Android Development</h3>
+        <div class="tag-wrap">
+          <span class="tag">Kotlin</span><span class="tag">MVVM</span><span class="tag">TensorFlow</span>
+          <span class="tag">FFMPEG</span><span class="tag">SDK Dev</span><span class="tag">Room</span>
+          <span class="tag">SQLite</span><span class="tag">DataStore</span><span class="tag">Retrofit</span>
+          <span class="tag">OkHttp</span><span class="tag">Volley</span><span class="tag">JSON/XML</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💙</div>
+        <h3>Flutter Development</h3>
+        <div class="tag-wrap">
+          <span class="tag">Dart</span><span class="tag">Provider</span><span class="tag">Riverpod</span>
+          <span class="tag">Bloc</span><span class="tag">FFMPEG Flutter</span><span class="tag">Flavor Apps</span>
+          <span class="tag">Firebase</span><span class="tag">Lottie</span><span class="tag">Flutter SDK</span>
+          <span class="tag">Animations</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🔌</div>
+        <h3>Hardware Integrations</h3>
+        <div class="tag-wrap">
+          <span class="tag">WiFi</span><span class="tag">Bluetooth</span><span class="tag">NFC</span>
+          <span class="tag">USB</span><span class="tag">Thermal Printer</span><span class="tag">POS SDK</span>
+          <span class="tag">Microsoft Intune</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">💳</div>
+        <h3>Payment Gateways</h3>
+        <div class="tag-wrap">
+          <span class="tag">RazorPay</span><span class="tag">Stripe</span>
+          <span class="tag">PayTM</span><span class="tag">Google Pay Intent</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">⚙️</div>
+        <h3>DevOps &amp; CI/CD</h3>
+        <div class="tag-wrap">
+          <span class="tag">Jenkins Pipeline</span><span class="tag">CodeMagic</span>
+          <span class="tag">CI/CD</span><span class="tag">Git</span><span class="tag">Code Review</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🤝</div>
+        <h3>Soft Skills</h3>
+        <div class="tag-wrap">
+          <span class="tag">Team Mentoring</span><span class="tag">Agile</span>
+          <span class="tag">Cross-functional</span><span class="tag">Documentation</span>
+          <span class="tag">Leadership</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div id="experience">
+  <div class="section-wrap">
+    <p class="section-label reveal">Career Journey</p>
+    <h2 class="section-title reveal">Work Experience</h2>
+    <div class="section-line reveal"></div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div><div class="tl-role">Senior Software Engineer</div><div class="tl-company">Kpoint Technologies · Pune</div></div>
+            <span class="tl-period">Jun 2024 – Present</span>
+          </div>
+          <ul class="tl-list">
+            <li>Solved complex technical issues to enhance product stability and performance.</li>
+            <li>Mentored junior developers, fostering professional growth and improving team productivity.</li>
+            <li>Delivered scalable features using Agile methodology while managing strict deadlines.</li>
+            <li>Coordinated with designers and backend teams to deliver UI/UX refined applications.</li>
+            <li>Optimized app performance through improved architectures and engineering best practices.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot" style="background:var(--accent2);box-shadow:0 0 0 3px var(--accent2)"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div><div class="tl-role">Consultant Engineer</div><div class="tl-company">Pragmatyc Global Pvt Ltd (Maximess) · Nagpur</div></div>
+            <span class="tl-period" style="background:rgba(129,140,248,.15);color:var(--accent2)">Dec 2020 – Jun 2024</span>
+          </div>
+          <ul class="tl-list">
+            <li>Led Android development for multiple digital products from inception to delivery.</li>
+            <li>Delivered projects consistently on time and within quality guidelines.</li>
+            <li>Improved documentation, development workflow, and coding structure across teams.</li>
+            <li>Increased team efficiency by implementing standardized procedures and processes.</li>
+            <li>Collaborated across cross-functional teams for seamless product delivery.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot" style="background:#34d399;box-shadow:0 0 0 3px #34d399"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div><div class="tl-role">Sr. Android Developer</div><div class="tl-company">RSL Solution Pvt Ltd</div></div>
+            <span class="tl-period" style="background:rgba(52,211,153,.15);color:#34d399">2018 – 2020</span>
+          </div>
+          <ul class="tl-list">
+            <li>Android development using Kotlin, MVVM architecture, TensorFlow, and FFMPEG.</li>
+            <li>Built SDK solutions with WiFi, Bluetooth, NFC, and USB hardware integrations.</li>
+            <li>Integrated Thermal Printer &amp; POS SDK for enterprise clients.</li>
+            <li>Implemented payment gateways: RazorPay, Stripe, PayTM, and Google Pay Intent.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" class="section-full">
+  <div class="section-wrap">
+    <p class="section-label reveal">What I've Built</p>
+    <h2 class="section-title reveal">Key Projects</h2>
+    <div class="section-line reveal"></div>
+    <div class="project-grid">
+      <div class="project-card reveal">
+        <div class="project-icon">🖨️</div>
+        <div class="project-name">HP Sprocket</div>
+        <div class="project-desc">Social photo printing mobile app for HP's portable photo printer lineup. Enables users to print directly from smartphones with intuitive editing, creative tools, and wireless sharing features.</div>
+        <div class="project-tags"><span class="tag">Android</span><span class="tag">Bluetooth</span><span class="tag">SDK</span><span class="tag">Printer Integration</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-icon">📷</div>
+        <div class="project-name">Kodak Smile</div>
+        <div class="project-desc">Companion app for Kodak's instant print camera, bridging digital and physical photography. Allows wireless printing, photo editing, and sharing directly from mobile devices.</div>
+        <div class="project-tags"><span class="tag">Android</span><span class="tag">WiFi</span><span class="tag">Camera SDK</span><span class="tag">Flutter</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-icon">🏦</div>
+        <div class="project-name">Tata AIA VTUBE</div>
+        <div class="project-desc">SecureLife App for Tata AIA Life Insurance — a comprehensive platform for policy management, claims tracking, and financial planning serving millions of insurance customers.</div>
+        <div class="project-tags"><span class="tag">Android</span><span class="tag">Kotlin</span><span class="tag">MVVM</span><span class="tag">Security</span></div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-icon">☕</div>
+        <div class="project-name">XPRESSO</div>
+        <div class="project-desc">A mobile application with seamless user experience, robust backend integration, real-time data handling, and smooth performance across Android devices.</div>
+        <div class="project-tags"><span class="tag">Android</span><span class="tag">Retrofit</span><span class="tag">Firebase</span><span class="tag">Flutter</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div id="education">
+  <div class="section-wrap">
+    <p class="section-label reveal">Academic Background</p>
+    <h2 class="section-title reveal">Education</h2>
+    <div class="section-line reveal"></div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-icon">🎓</div>
+        <div class="edu-degree">Master of Computer Applications (MCA)</div>
+        <div class="edu-school">K.K. Wagh College of Engineering, Nashik</div>
+        <div class="edu-year">2014 – 2016 · Graduated with Distinction</div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-icon">📚</div>
+        <div class="edu-degree">B.Sc. Computer Science</div>
+        <div class="edu-school">R.C. Patel College, Shirpur</div>
+        <div class="edu-year">2012 – 2013</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact" class="section-full">
+  <div class="section-wrap">
+    <p class="section-label reveal">Let's Talk</p>
+    <h2 class="section-title reveal">Get In Touch</h2>
+    <div class="section-line reveal"></div>
+    <p style="color:var(--muted);margin-bottom:2rem;max-width:520px;line-height:1.7" class="reveal">
+      I'm always open to exciting opportunities, collaborations, or a great conversation about Android &amp; Flutter. Feel free to reach out!
+    </p>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-label">Email</div>
+        <a class="contact-value" href="mailto:dnyaneshk123@gmail.com">dnyaneshk123@gmail.com</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">💼</div>
+        <div class="contact-label">LinkedIn</div>
+        <a class="contact-value" href="https://www.linkedin.com/in/dnyanesh-kalal-058905105" target="_blank">dnyanesh-kalal</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">📍</div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Pune, India</div>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">📱</div>
+        <div class="contact-label">Phone</div>
+        <a class="contact-value" href="tel:+917387060143">+91 7387060143</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Crafted with ❤️ by <strong>Dnyanesh Kalal</strong> · Senior Software Engineer · Pune, India · © 2026
+</footer>
+
+<script>
+  // Theme toggle
+  const toggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  toggle.addEventListener('click', () => {
+    const dark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', dark ? 'light' : 'dark');
+    toggle.textContent = dark ? '☀️' : '🌙';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Active nav
+  const sections = document.querySelectorAll('[id]');
+  const navAs = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 120) cur = s.id; });
+    navAs.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--accent)' : ''; });
+  });
+
+  // Download resume button (placeholder)
+  function downloadResume() {
+    alert('Place your resume PDF in the same folder as this HTML file named: Dnyanesh_Kalal_Resume.pdf');
+  }
+</script>
+</body>
+</html>
