@@ -56,7 +56,7 @@ h1.hero-name span{display:block}
 .hero-title-line{display:flex;align-items:center;gap:1rem;margin-bottom:2rem}
 .hero-role{font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--muted);font-weight:400}
 .hero-role-bracket{color:var(--acid2);font-weight:600}
-.hero-desc{font-size:1.05rem;line-height:1.75;color:#4b5563;max-width:480px;margin-bottom:2.5rem;font-weight:300}
+.hero-desc{font-size:1.05rem;line-height:1.75;color:var(--text);max-width:480px;margin-bottom:2.5rem;font-weight:300}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.8rem;border-radius:30px;font-weight:600;font-size:.88rem;cursor:pointer;transition:all .22s;border:none;letter-spacing:.02em}
 .btn-ink{background:var(--ink);color:var(--paper)}
@@ -93,7 +93,7 @@ h1.hero-name span{display:block}
 .section{padding:7rem 2.5rem;max-width:1280px;margin:0 auto}
 .section-alt{background:var(--cream)}
 .section-alt .section{margin:0 auto;max-width:none;padding-inline:calc(50% - 640px)}
-.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acid2);margin-bottom:.6rem}
+.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acid);margin-bottom:.6rem}
 .sec-title{font-family:'Inter',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:.5rem}
 .sec-bar{width:40px;height:3px;background:var(--ink);border-radius:2px;margin-bottom:3.5rem}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
@@ -140,7 +140,7 @@ h1.hero-name span{display:block}
 .proj-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(10,11,15,.4)}
 .proj-no{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#475569;letter-spacing:.1em}
 .proj-name{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:800;letter-spacing:-.02em}
-.proj-desc{font-size:.85rem;color:#94a3b8;line-height:1.7;flex:1;font-weight:300}
+.proj-desc{font-size:.85rem;color:#cbd5e1;line-height:1.7;flex:1;font-weight:300}
 .proj-link{font-size:.75rem;color:var(--acid);font-family:'JetBrains Mono',monospace;display:inline-flex;align-items:center;gap:.3rem;transition:opacity .2s}
 .proj-link:hover{opacity:.7}
 .proj-tags{display:flex;flex-wrap:wrap;gap:.35rem}
@@ -158,7 +158,7 @@ h1.hero-name span{display:block}
 /* ── CONTACT ── */
 .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .contact-text h2{font-family:'Inter',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.03em;margin-bottom:1rem}
-.contact-text p{font-size:1rem;color:#6b7280;line-height:1.75;font-weight:300;margin-bottom:2rem;max-width:420px}
+.contact-text p{font-size:1rem;color:var(--text);line-height:1.75;font-weight:300;margin-bottom:2rem;max-width:420px}
 .contact-cards{display:grid;gap:1rem}
 .c-card{display:flex;align-items:center;gap:1rem;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem 1.5rem;transition:all .25s}
 .c-card:hover{border-color:var(--ink);transform:translateX(5px)}
@@ -381,7 +381,7 @@ footer{background:var(--ink);color:var(--paper);padding:2.5rem;text-align:center
       <div class="exp-date">2024<br>—<br>Present</div>
       <div class="exp-body">
         <div class="exp-role">Senior Software Engineer</div>
-        <div class="exp-company">Kpoint Technologies <span class="exp-badge">Current</span></div>
+        <div class="exp-company">KPOINT Technologies <span class="exp-badge">Current</span></div>
         <ul class="exp-list">
           <li>Solving complex technical issues to enhance product stability and reliability across the platform.</li>
           <li>Mentoring junior developers, conducting code reviews, and improving overall team productivity.</li>
@@ -468,8 +468,8 @@ footer{background:var(--ink);color:var(--paper);padding:2.5rem;text-align:center
   <div class="proj-grid">
 
     <div class="proj-card reveal">
-      <div class="proj-no">01 · Kpoint Technologies · Web</div>
-      <div class="proj-name">Kpoint TUBE</div>
+      <div class="proj-no">01 · KPOINT Technologies · Web</div>
+      <div class="proj-name">KPOINT TUBE</div>
       <div class="proj-desc">Enterprise video platform enabling organizations to host, manage, and distribute training and knowledge videos at scale. Built as a full web app using React, CSS, and Node.js — with AWS-powered infrastructure including Redis queues and background workers for async video processing and delivery.</div>
       <a class="proj-link" href="https://www.kpoint.com/products/tube/" target="_blank">🔗 Visit Product Page</a>
       <div class="proj-tags">
@@ -478,8 +478,8 @@ footer{background:var(--ink);color:var(--paper);padding:2.5rem;text-align:center
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-no">02 · Kpoint Technologies · Web</div>
-      <div class="proj-name">Kpoint PLAY</div>
+      <div class="proj-no">02 · KPOINT Technologies · Web</div>
+      <div class="proj-name">KPOINT PLAY</div>
       <div class="proj-desc">Interactive video publishing platform that empowers creators to add interactivity and personalization to videos, then publish to desired domains for measurable business outcomes. Web app built with React, JS, and CSS — backed by AWS services including Redis queues and scalable worker pipelines.</div>
       <a class="proj-link" href="https://www.kpoint.com/products/play/" target="_blank">🔗 Visit Product Page</a>
       <div class="proj-tags">
@@ -488,7 +488,7 @@ footer{background:var(--ink);color:var(--paper);padding:2.5rem;text-align:center
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-no">03 · Kpoint Technologies · Mobile</div>
+      <div class="proj-no">03 · KPOINT Technologies · Mobile</div>
       <div class="proj-name">FAB — Social Video App</div>
       <div class="proj-desc">Social video experience app that lets users "Go Social" and level up with immersive Video UX. Available on Android & iOS, FAB delivers a rich short-video social platform with smooth animations, real-time interactions, and a highly polished UI.</div>
       <a class="proj-link" href="https://www.getfab.app/" target="_blank">🔗 Visit getfab.app</a>
@@ -498,7 +498,7 @@ footer{background:var(--ink);color:var(--paper);padding:2.5rem;text-align:center
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-no">04 · Kpoint Technologies</div>
+      <div class="proj-no">04 · KPOINT Technologies</div>
       <div class="proj-name">HP Sprocket</div>
       <div class="proj-desc">Photo-editing hub and wireless printing app for all HP Sprocket printers. Users find memorable photos from their smartphone or social media, customize them with text, borders, emojis and stickers, then print on 2×3" to 4×6" photo or sticker paper. Pair any HP Sprocket printer in seconds and print from anywhere. 1M+ downloads on Play Store.</div>
       <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.hp.impulse.sprocket" target="_blank">🔗 View on Play Store</a>
@@ -508,7 +508,7 @@ footer{background:var(--ink);color:var(--paper);padding:2.5rem;text-align:center
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-no">05 · Kpoint Technologies</div>
+      <div class="proj-no">05 · KPOINT Technologies</div>
       <div class="proj-name">Kodak Smile</div>
       <div class="proj-desc">Companion app for the KODAK SMILE Instant Digital Printer. Capture, edit, print, and share photos; create augmented reality videos from a single snapshot; and use Advanced Search to find specific objects, faces, and places in your camera roll. Connect to social networks, apply filters, borders, and stickers — then print or share instantly.</div>
       <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.kodaksmile" target="_blank">🔗 View on Play Store</a>
@@ -528,8 +528,8 @@ footer{background:var(--ink);color:var(--paper);padding:2.5rem;text-align:center
     </div>
 
     <div class="proj-card reveal">
-      <div class="proj-no">07 · Kpoint Technologies</div>
-      <div class="proj-name">XPRESSO by Kpoint</div>
+      <div class="proj-no">07 · KPOINT Technologies</div>
+      <div class="proj-name">XPRESSO by KPOINT</div>
       <div class="proj-desc">Enterprise reel creation app that democratizes content creation and knowledge sharing within organizations. Employees can connect, create, and share engaging short videos — from company updates and achievements to industry insights. Features enterprise reels, customizable templates, music, stickers, and a personalized Explore feed.</div>
       <a class="proj-link" href="https://play.google.com/store/apps/details?id=com.kpoint.xpresso" target="_blank">🔗 View on Play Store</a>
       <div class="proj-tags">
